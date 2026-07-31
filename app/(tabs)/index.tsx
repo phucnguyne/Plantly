@@ -1,6 +1,6 @@
 import { FlatList, StyleSheet } from "react-native";
 import { theme } from "@/theme";
-import { usePlantStore } from "@/store/PlanStore";
+import { usePlantStore } from "@/store/planStore";
 import { PlantlyButton } from "@/components/PlantlyButton";
 import { useRouter } from "expo-router";
 import { PlantCard } from "@/components/PlanCard";

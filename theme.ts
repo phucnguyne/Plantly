@@ -1,4 +1,4 @@
-export const theme = {  
+export const theme = {
   colorParchment: "#F0EEE9",
   colorForestTeal: "#005240",
   colorSageGreen: "#A7BFA8",
@@ -10,4 +10,4 @@ export const theme = {
   colorLightGrey: "#eee",
   colorGrey: "#999",
   colorBlack: "#000000",
-}
+};
