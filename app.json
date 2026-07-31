@@ -6,7 +6,7 @@
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
-     "scheme": "plantly",
+    "scheme": "plantly",
     "ios": {
       "supportsTablet": true
     },
@@ -21,7 +21,7 @@
     },
     "web": {
       "favicon": "./assets/favicon.png",
-       "bundler": "metro"
+      "bundler": "metro"
     },
     "plugins": [
       "expo-router"
