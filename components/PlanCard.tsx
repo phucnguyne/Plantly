@@ -1,21 +1,24 @@
-import { StyleSheet, View, Text } from "react-native";
+import { StyleSheet, View, Text, Pressable } from "react-native";
 import { theme } from "@/theme";
 import { PlantType } from "@/store/planStore";
 import { PlantlyImage } from "@/components/PlantlyImage";
+import { Link } from "expo-router";
 
 export function PlantCard({ plant }: { plant: PlantType }) {
   return (
-    <View style={styles.plantCard}>
-      <PlantlyImage imgUrl={require("@/assets/wiro2.jpg")} size={100} />
-      <View style={styles.details}>
-        <Text numberOfLines={1} style={styles.plantName}>
-          {plant.name}
-        </Text>
-        <Text style={styles.subtitle}>
-          Eat every {plant.EatingFrequencyDays} days
-        </Text>
-      </View>
-    </View>
+    <Link href={`/plants/${plant.id}`} asChild>
+      <Pressable style={styles.plantCard}>
+        <PlantlyImage size={100} imgUrl={plant.imgUrl} />
+        <View style={styles.details}>
+          <Text numberOfLines={1} style={styles.plantName}>
+            {plant.name}
+          </Text>
+          <Text style={styles.subtitle}>
+            Water every {plant.EatingFrequencyDays} days
+          </Text>
+        </View>
+      </Pressable>
+    </Link>
   );
 }
 
@@ -23,7 +26,7 @@ const styles = StyleSheet.create({
   plantCard: {
     flexDirection: "row",
     shadowColor: theme.colorBlack,
-    backgroundColor: theme.colorParchment,
+    backgroundColor: theme.colorSageGreen,
     borderRadius: 6,
     padding: 12,
     marginBottom: 12,
@@ -45,6 +48,6 @@ const styles = StyleSheet.create({
     marginBottom: 4,
   },
   subtitle: {
-    color: theme.colorLightGrey,
+    color: theme.colorParchment,
   },
 });

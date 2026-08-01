@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View } from "react-native";
 import { theme } from "@/theme";
 import { useUserStore } from "@/store/userStore";
-import { SplashScreen, useRouter } from "expo-router";
+import { useRouter } from "expo-router";
 import { PlantlyButton } from "@/components/PlantlyButton";
 import { LinearGradient } from "expo-linear-gradient";
 import { StatusBar } from "expo-status-bar";

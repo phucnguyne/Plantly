@@ -1,4 +1,4 @@
-import { Image, ImageSourcePropType, useWindowDimensions } from "react-native";
+import { Image, useWindowDimensions } from "react-native";
 
 type Props = {
   imgUrl?: string;

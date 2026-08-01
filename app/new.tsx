@@ -3,8 +3,6 @@ import {
   StyleSheet,
   TextInput,
   Alert,
-  ScrollView,
-  View,
   TouchableOpacity,
   Platform,
 } from "react-native";
@@ -112,7 +110,7 @@ const styles = StyleSheet.create({
   },
   input: {
     borderWidth: 2,
-    borderColor: theme.colorLightGrey,
+    borderColor: theme.colorButtonPressed,
     padding: 12,
     borderRadius: 6,
     marginBottom: 24,
