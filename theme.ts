@@ -7,4 +7,5 @@ export const theme = {
   colorButton: "#afbfa7",
   colorWhite: "#FFFFFF",
   colorBlack: "#000000",
+  colorOpacityBlack: "rgba(136, 136, 136, 0.5)",
 };

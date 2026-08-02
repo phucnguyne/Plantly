@@ -32,6 +32,23 @@ export default function RootLayout() {
           },
         }}
       />
+      <Stack.Screen
+        name="change-companion"
+        options={{
+          presentation: "modal",
+          title: "Change Companion",
+          headerTitleAlign: "center",
+          headerTitleStyle: {
+            fontSize: 18,
+            fontWeight: "bold",
+            color: theme.colorForestTeal,
+          },
+          headerStyle: {
+            backgroundColor: theme.colorParchment,
+          },
+          headerShown: false,
+        }}
+      />
     </Stack>
   );
 }

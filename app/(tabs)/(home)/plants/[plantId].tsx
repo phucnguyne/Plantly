@@ -1,11 +1,18 @@
 import { useLocalSearchParams, useNavigation, useRouter } from "expo-router";
 import { View, Text, StyleSheet, Pressable, Alert } from "react-native";
+import { Image } from "expo-image";
 import { usePlantStore } from "@/store/planStore";
 import { differenceInCalendarDays, format } from "date-fns";
 import { PlantlyButton } from "@/components/PlantlyButton";
 import { theme } from "@/theme";
 import { useEffect } from "react";
 import { PlantlyImage } from "@/components/PlantlyImage";
+
+const ICON_SOURCES: Record<string, ReturnType<typeof require>> = {
+  dot: require("@/assets/plan-dot-512.svg"),
+  mochi: require("@/assets/plan-mochi-512.svg"),
+  scout: require("@/assets/plan-scout-512.svg"),
+};
 
 const fullDateFormat = "LLL d yyyy, h:mm aaa";
 
@@ -18,6 +25,11 @@ export default function PlantDetails() {
   const plant = usePlantStore((state) =>
     state.plants.find((plant) => String(plant.id) === plantId),
   );
+
+  const iconId = plant?.companionIcon;
+  const companionSource =
+    iconId && ICON_SOURCES[iconId] ? ICON_SOURCES[iconId] : null;
+
   const navigation = useNavigation();
 
   useEffect(() => {
@@ -70,7 +82,17 @@ export default function PlantDetails() {
   return (
     <View style={styles.detailsContainer}>
       <View style={{ alignItems: "center" }}>
-        <PlantlyImage imgUrl={plant.imgUrl} />
+        {plant.imgUrl ? (
+          <PlantlyImage imgUrl={plant.imgUrl} />
+        ) : companionSource ? (
+          <Image
+            source={companionSource}
+            style={styles.companionIcon}
+            contentFit="contain"
+          />
+        ) : (
+          <PlantlyImage />
+        )}
         <View style={styles.spacer} />
         <Text style={styles.key}>Water me every</Text>
         <Text style={styles.value}>{plant.EatingFrequencyDays} days</Text>
@@ -135,5 +157,9 @@ const styles = StyleSheet.create({
   },
   spacer: {
     height: 18,
+  },
+  companionIcon: {
+    width: 200,
+    height: 200,
   },
 });

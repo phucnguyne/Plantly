@@ -1,14 +1,36 @@
 import { StyleSheet, View, Text, Pressable } from "react-native";
+import { Image } from "expo-image";
 import { theme } from "@/theme";
 import { PlantType } from "@/store/planStore";
 import { PlantlyImage } from "@/components/PlantlyImage";
 import { Link } from "expo-router";
 
+const ICON_SOURCES: Record<string, ReturnType<typeof require>> = {
+  dot: require("@/assets/plan-dot-512.svg"),
+  mochi: require("@/assets/plan-mochi-512.svg"),
+  scout: require("@/assets/plan-scout-512.svg"),
+};
+
 export function PlantCard({ plant }: { plant: PlantType }) {
+  const companionSource =
+    plant.companionIcon && ICON_SOURCES[plant.companionIcon]
+      ? ICON_SOURCES[plant.companionIcon]
+      : null;
+
   return (
     <Link href={`/plants/${plant.id}`} asChild>
       <Pressable style={styles.plantCard}>
-        <PlantlyImage size={100} imgUrl={plant.imgUrl} />
+        {plant.imgUrl ? (
+          <PlantlyImage size={100} imgUrl={plant.imgUrl} />
+        ) : companionSource ? (
+          <Image
+            source={companionSource}
+            style={styles.cardIcon}
+            contentFit="contain"
+          />
+        ) : (
+          <PlantlyImage size={100} />
+        )}
         <View style={styles.details}>
           <Text numberOfLines={1} style={styles.plantName}>
             {plant.name}
@@ -36,8 +58,11 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.22,
     shadowRadius: 2.22,
-
     elevation: 3,
+  },
+  cardIcon: {
+    width: 100,
+    height: 100,
   },
   details: {
     padding: 14,

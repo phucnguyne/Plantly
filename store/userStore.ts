@@ -5,6 +5,8 @@ import { persist, createJSONStorage } from "zustand/middleware";
 type UserState = {
   hasFinishedOnboarding: boolean;
   toggleHasOnboarded: () => void;
+  companionIcon: string | null;
+  setCompanionIcon: (icon: string | null) => void;
 };
 
 export const useUserStore = create(
@@ -18,6 +20,13 @@ export const useUserStore = create(
             hasFinishedOnboarding: !state.hasFinishedOnboarding,
           };
         });
+      },
+      companionIcon: null,
+      setCompanionIcon: (icon: string | null) => {
+        return set((state) => ({
+          ...state,
+          companionIcon: icon,
+        }));
       },
     }),
     {

@@ -11,7 +11,7 @@ export function PlantlyImage({ imgUrl, size }: Props) {
 
   return (
     <Image
-      source={imgUrl ? { uri: imgUrl } : require("@/assets/wiro.jpg")}
+      source={imgUrl ? { uri: imgUrl } : require("../assets/icon.png")}
       style={[
         {
           width: imageSize,

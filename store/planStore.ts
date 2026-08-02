@@ -9,6 +9,7 @@ export type PlantType = {
   EatingFrequencyDays: number;
   lastEatenAtTimestamp?: number;
   imgUrl?: string;
+  companionIcon?: string | null;
 };
 
 type PlantsState = {
@@ -18,6 +19,7 @@ type PlantsState = {
     name: string,
     eatingFrequencyDays: number,
     imgUrl?: string,
+    companionIcon?: string | null,
   ) => Promise<void>;
   removePlan: (plantId: string) => void;
   waterPlan: (plantId: string) => void;
@@ -32,6 +34,7 @@ export const usePlantStore = create(
         name: string,
         eatingFrequencyDays: number,
         imgUrl?: string,
+        companionIcon?: string | null,
       ) => {
         let savedImageUrl: string | undefined;
         if (imgUrl) {
@@ -50,6 +53,7 @@ export const usePlantStore = create(
               name,
               EatingFrequencyDays: eatingFrequencyDays,
               imgUrl: imgUrl ? savedImageUrl : undefined,
+              companionIcon: companionIcon ?? null,
             },
             ...state.plants,
           ],

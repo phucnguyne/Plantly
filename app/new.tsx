@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   Platform,
 } from "react-native";
+import { Image } from "expo-image";
 import { theme } from "@/theme";
 import { PlantlyButton } from "@/components/PlantlyButton";
 import { useState } from "react";
@@ -14,10 +15,18 @@ import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view
 import { usePlantStore } from "@/store/planStore";
 import { useRouter } from "expo-router";
 import { launchImageLibraryAsync } from "expo-image-picker";
+import { useUserStore } from "@/store/userStore";
+
+const ICON_SOURCES: Record<string, ReturnType<typeof require>> = {
+  dot: require("@/assets/plan-dot-512.svg"),
+  mochi: require("@/assets/plan-mochi-512.svg"),
+  scout: require("@/assets/plan-scout-512.svg"),
+};
 
 export default function NewScreen() {
   const router = useRouter();
   const addPlan = usePlantStore((state) => state.addPlan);
+  const companionIcon = useUserStore((state) => state.companionIcon);
 
   const [name, setName] = useState<string>();
   const [days, setDays] = useState<string>();
@@ -42,7 +51,7 @@ export default function NewScreen() {
       );
     }
 
-    addPlan(name, Number(days), imgUrl);
+    addPlan(name, Number(days), imgUrl, companionIcon);
     router.back();
   };
 
@@ -75,7 +84,17 @@ export default function NewScreen() {
         onPress={handleChooseImage}
         activeOpacity={0.7}
       >
-        <PlantlyImage imgUrl={imgUrl} />
+        {imgUrl ? (
+          <PlantlyImage imgUrl={imgUrl} />
+        ) : companionIcon && ICON_SOURCES[companionIcon] ? (
+          <Image
+            source={ICON_SOURCES[companionIcon]}
+            style={styles.companionIcon}
+            contentFit="contain"
+          />
+        ) : (
+          <PlantlyImage />
+        )}
       </TouchableOpacity>
       <Text style={styles.label}>Name</Text>
       <TextInput
@@ -123,5 +142,9 @@ const styles = StyleSheet.create({
   centered: {
     alignItems: "center",
     marginBottom: 24,
+  },
+  companionIcon: {
+    width: 200,
+    height: 200,
   },
 });
