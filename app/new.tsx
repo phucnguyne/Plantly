@@ -104,7 +104,7 @@ export default function NewScreen() {
         placeholder="E.g. Casper the Cactus"
         autoCapitalize="words"
       />
-      <Text style={styles.label}>Eating Frequency (every x days)</Text>
+      <Text style={styles.label}>Repeat interval (every x days)</Text>
       <TextInput
         value={days}
         onChangeText={setDays}

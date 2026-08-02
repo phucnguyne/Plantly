@@ -10,6 +10,12 @@ export default function Layout() {
         name="index"
         options={{
           title: "Home",
+          headerTintColor: theme.colorForestTeal,
+          headerTitleStyle: {
+            color: theme.colorForestTeal,
+            fontSize: 18,
+            fontWeight: "bold",
+          },
           headerRight: () => (
             <Link href="/new" asChild>
               <Pressable hitSlop={20}>

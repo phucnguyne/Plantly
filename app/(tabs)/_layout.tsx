@@ -18,6 +18,10 @@ export default function Layout() {
       screenOptions={{
         tabBarActiveTintColor: theme.colorForestTeal,
         tabBarInactiveTintColor: theme.colorButtonPressed,
+        headerTintColor: theme.colorForestTeal,
+        headerTitleStyle: {
+          color: theme.colorForestTeal,
+        },
         tabBarStyle: {
           backgroundColor: theme.colorParchment,
           borderTopColor: theme.colorSageGreen,

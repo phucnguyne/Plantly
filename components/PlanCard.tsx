@@ -36,7 +36,7 @@ export function PlantCard({ plant }: { plant: PlantType }) {
             {plant.name}
           </Text>
           <Text style={styles.subtitle}>
-            Water every {plant.EatingFrequencyDays} days
+            Repeat every {plant.EatingFrequencyDays} days
           </Text>
         </View>
       </Pressable>

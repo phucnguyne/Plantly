@@ -94,22 +94,22 @@ export default function PlantDetails() {
           <PlantlyImage />
         )}
         <View style={styles.spacer} />
-        <Text style={styles.key}>Water me every</Text>
+        <Text style={styles.key}>Repeat every</Text>
         <Text style={styles.value}>{plant.EatingFrequencyDays} days</Text>
-        <Text style={styles.key}>Last watered at</Text>
+        <Text style={styles.key}>Last completed at</Text>
         <Text style={styles.value}>
           {plant.lastEatenAtTimestamp
             ? `${format(plant.lastEatenAtTimestamp, fullDateFormat)}`
             : "Never 😟"}
         </Text>
-        <Text style={styles.key}>Days since last watered</Text>
+        <Text style={styles.key}>Days since last completed</Text>
         <Text style={styles.value}>
           {plant.lastEatenAtTimestamp
             ? differenceInCalendarDays(Date.now(), plant.lastEatenAtTimestamp)
             : "N/A"}
         </Text>
       </View>
-      <PlantlyButton title="Water me!" onPress={handleWaterPlant} />
+      <PlantlyButton title="Mark done" onPress={handleWaterPlant} />
       <Pressable style={styles.deleteButton} onPress={handleDeletePlant}>
         <Text style={styles.deleteButtonText}>Delete</Text>
       </Pressable>
