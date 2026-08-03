@@ -13,24 +13,7 @@ import { PlantlyButton } from "@/components/PlantlyButton";
 import { LinearGradient } from "expo-linear-gradient";
 import { StatusBar } from "expo-status-bar";
 import { useState } from "react";
-
-const ICONS = [
-  {
-    id: "dot",
-    source: require("@/assets/plan-dot-512.svg"),
-    label: "Dot",
-  },
-  {
-    id: "mochi",
-    source: require("@/assets/plan-mochi-512.svg"),
-    label: "Mochi",
-  },
-  {
-    id: "scout",
-    source: require("@/assets/plan-scout-512.svg"),
-    label: "Scout",
-  },
-];
+import { ICONS } from "@/utils/icon";
 
 export default function OnboardingScreen() {
   const router = useRouter();

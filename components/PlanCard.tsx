@@ -4,12 +4,7 @@ import { theme } from "@/theme";
 import { PlantType } from "@/store/planStore";
 import { PlantlyImage } from "@/components/PlantlyImage";
 import { Link } from "expo-router";
-
-const ICON_SOURCES: Record<string, ReturnType<typeof require>> = {
-  dot: require("@/assets/plan-dot-512.svg"),
-  mochi: require("@/assets/plan-mochi-512.svg"),
-  scout: require("@/assets/plan-scout-512.svg"),
-};
+import { ICON_SOURCES } from "@/utils/icon";
 
 export function PlantCard({ plant }: { plant: PlantType }) {
   const companionSource =

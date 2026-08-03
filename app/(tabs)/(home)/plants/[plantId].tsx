@@ -7,12 +7,7 @@ import { PlantlyButton } from "@/components/PlantlyButton";
 import { theme } from "@/theme";
 import { useEffect } from "react";
 import { PlantlyImage } from "@/components/PlantlyImage";
-
-const ICON_SOURCES: Record<string, ReturnType<typeof require>> = {
-  dot: require("@/assets/plan-dot-512.svg"),
-  mochi: require("@/assets/plan-mochi-512.svg"),
-  scout: require("@/assets/plan-scout-512.svg"),
-};
+import { ICON_SOURCES } from "@/utils/icon";
 
 const fullDateFormat = "LLL d yyyy, h:mm aaa";
 

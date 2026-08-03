@@ -12,20 +12,7 @@ import { theme } from "@/theme";
 import { useUserStore } from "@/store/userStore";
 import { PlantlyButton } from "@/components/PlantlyButton";
 import { StatusBar } from "expo-status-bar";
-
-const ICONS = [
-  { id: "dot", source: require("@/assets/plan-dot-512.svg"), label: "Dot" },
-  {
-    id: "mochi",
-    source: require("@/assets/plan-mochi-512.svg"),
-    label: "Mochi",
-  },
-  {
-    id: "scout",
-    source: require("@/assets/plan-scout-512.svg"),
-    label: "Scout",
-  },
-];
+import { ICONS, ICON_TYPES, getIconDetails } from "@/utils/icon";
 
 export default function ChangeCompanionScreen() {
   const router = useRouter();
@@ -75,6 +62,9 @@ export default function ChangeCompanionScreen() {
       >
         {ICONS.map((icon) => {
           const isSelected = selectedIcon === icon.id;
+          const iconDetails = getIconDetails(icon.id);
+          const iconType =
+            ICON_TYPES[icon.id as keyof typeof ICON_TYPES] ?? icon.label;
           return (
             <TouchableOpacity
               key={icon.id}
@@ -94,6 +84,19 @@ export default function ChangeCompanionScreen() {
                 ]}
               >
                 {icon.label}
+              </Text>
+              <Text
+                style={[styles.iconType, isSelected && styles.iconTypeSelected]}
+              >
+                {iconType}
+              </Text>
+              <Text
+                style={[
+                  styles.iconDetails,
+                  isSelected && styles.iconDetailsSelected,
+                ]}
+              >
+                {iconDetails}
               </Text>
             </TouchableOpacity>
           );
@@ -182,13 +185,41 @@ const styles = StyleSheet.create({
   },
   iconLabel: {
     marginTop: 6,
-    fontSize: 13,
+    fontSize: 22,
     color: theme.colorParchment,
     fontWeight: "500",
   },
   iconLabelSelected: {
     color: theme.colorForestTeal,
     fontWeight: "700",
+  },
+  iconType: {
+    marginTop: 8,
+    paddingHorizontal: 12,
+    paddingVertical: 4,
+    borderRadius: 999,
+    overflow: "hidden",
+    fontSize: 11,
+    color: theme.colorParchment,
+    fontWeight: "700",
+    textTransform: "uppercase",
+    backgroundColor: theme.colorForestTeal,
+  },
+  iconTypeSelected: {
+    backgroundColor: theme.colorForestTeal,
+    color: theme.colorParchment,
+  },
+  iconDetails: {
+    marginTop: 8,
+    width: 145,
+    minHeight: 42,
+    fontSize: 12,
+    lineHeight: 14,
+    color: theme.colorParchment,
+    textAlign: "center",
+  },
+  iconDetailsSelected: {
+    color: theme.colorForestTeal,
   },
   actions: {
     width: "100%",
