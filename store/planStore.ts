@@ -75,7 +75,7 @@ export const usePlantStore = create(
               if (plant.id === plantId) {
                 return {
                   ...plant,
-                  lastWateredAtTimestamp: Date.now(),
+                  lastEatenAtTimestamp: Date.now(),
                 };
               }
               return plant;

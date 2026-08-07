@@ -39,3 +39,11 @@ yarn-error.*
 # generated native folders
 /ios
 /android
+
+.vscode/
+
+/undefined
+
+/temp-expo-core
+
+plantly-1.0.0.tgz
