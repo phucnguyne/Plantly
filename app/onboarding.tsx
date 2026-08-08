@@ -4,6 +4,7 @@ import {
   View,
   TouchableOpacity,
   ScrollView,
+  Platform,
 } from "react-native";
 import { Image } from "expo-image";
 import { theme } from "@/theme";
@@ -124,9 +125,14 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   tagline: {
-    fontSize: 18,
+    fontSize: 36,
     color: theme.colorParchment,
     textAlign: "center",
+    fontFamily: Platform.select({
+      ios: "Caveat_400Regular",
+      android: "Caveat_400Regular",
+      default: "Caveat_400Regular",
+    }),
   },
   previewContainer: {
     alignItems: "center",
