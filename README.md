@@ -8,10 +8,12 @@
 </p>
 
 <p align="center">
-  <img alt="Expo 54" src="https://img.shields.io/badge/Expo-54-111827?style=for-the-badge" />
-  <img alt="React Native 0.81.5" src="https://img.shields.io/badge/React_Native-0.81.5-61DAFB?style=for-the-badge" />
-  <img alt="TypeScript 5.9" src="https://img.shields.io/badge/TypeScript-5.9-3178C6?style=for-the-badge" />
-  <img alt="Zustand 5" src="https://img.shields.io/badge/Zustand-5-111827?style=for-the-badge" />
+  <a href="https://expo.dev"><img alt="Expo 54" src="https://img.shields.io/badge/Expo-54-111827?style=flat-square&logo=expo" /></a>
+  <a href="https://reactnative.dev"><img alt="React Native 0.81.5" src="https://img.shields.io/badge/React_Native-0.81.5-61DAFB?style=flat-square&logo=react" /></a>
+  <a href="https://www.typescriptlang.org"><img alt="TypeScript 5.9" src="https://img.shields.io/badge/TypeScript-5.9-3178C6?style=flat-square&logo=typescript" /></a>
+  <a href="https://zustand.docs.pmnd.rs"><img alt="Zustand 5" src="https://img.shields.io/badge/Zustand-5-111827?style=flat-square" /></a>
+  <a href="https://react-native-async-storage.github.io/async-storage"><img alt="AsyncStorage 2.2" src="https://img.shields.io/badge/AsyncStorage-2.2-3B82F6?style=flat-square" /></a>
+  <img alt="License MIT" src="https://img.shields.io/badge/License-MIT-22C55E?style=flat-square" />
 </p>
 
 Plantly là một ứng dụng chăm sóc cây theo chu kỳ, giúp người dùng tạo kế hoạch, theo dõi nhắc nhở chăm sóc và giữ kết nối với từng cây của mình theo cách dễ thương, dễ nhìn và rất cá nhân.
